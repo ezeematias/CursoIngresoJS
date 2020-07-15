@@ -11,10 +11,12 @@ function sumar()
 	num1 = txtIdNumeroUno.value;
 	num2 = txtIdNumeroDos.value;
 
-	// parseInt(num1, num2);
+	num1 = parseInt(num1);
+	num2 = parseInt(num2);
 
-	suma = parseInt (num1) + parseInt(num2);
-
+	//suma = parseInt (num1) + parseInt(num2);
+	suma = num1 + num2;
+	
 	alert("La suma es " + suma + ".");
 	}
 
