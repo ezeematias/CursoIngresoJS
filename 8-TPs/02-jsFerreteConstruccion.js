@@ -18,10 +18,9 @@ function Rectangulo ()
     largo = parseInt(largo);
     ancho = parseInt(ancho);
 
-    metrosTotales = (largo + ancho) * hilosAlambre;
+    metrosTotales = (largo * 2 + ancho * 2) * hilosAlambre;
 
     alert("La cantidad de alambre a utilizar es " + metrosTotales + "mts");
-
 }
 function Circulo () 
 {
@@ -34,9 +33,10 @@ function Circulo ()
     hilosAlambre = 3
 
     radio = parseInt(radio);
-    circunferencia = 2 * radio * 3.14;
+    circunferencia = 2 * radio * Math.PI;
 
-    metrosTotales = circunferencia * hilosAlambre;
+    metrosTotales = circunferencia * hilosAlambre;    
+    metrosTotales = metrosTotales.toFixed(2);
 
     alert("La cantidad de alambre a utilizar es " + metrosTotales + "mts");
 }
@@ -60,8 +60,7 @@ function Materiales ()
 
     metrosCuadrados = largo * ancho;
     bolsasCementoTotal = metrosCuadrados * bolsasCemento;
-    bolsasCalTotal = metrosCuadrados * bolsasCal;
-       
+    bolsasCalTotal = metrosCuadrados * bolsasCal;       
 
     alert("Para los " + metrosCuadrados + "m2 se necesitan: " + bolsasCementoTotal + " bolsas de cemento y " + bolsasCalTotal + " bolsas de cal.");
 }
