@@ -11,12 +11,12 @@ function Rectangulo ()
     var hilosAlambre;
     var metrosTotales;
 
-    largo = txtIdLargo.value;
-    ancho = txtIdAncho.value;
+    largo = parseInt(txtIdLargo.value);
+    ancho = parseInt(txtIdAncho.value);
     hilosAlambre = 3
 
-    largo = parseInt(largo);
-    ancho = parseInt(ancho);
+    //largo = parseInt(largo);
+    //ancho = parseInt(ancho);
 
     metrosTotales = (largo * 2 + ancho * 2) * hilosAlambre;
 
