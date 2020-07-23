@@ -14,86 +14,74 @@ function CalcularPrecio ()
     var precioLamparitas;
     var cantidadLamparitas;
     var marcaLamparitas;
-    var descuento50;
-    var descuento40;
-    var descuento30;
-    var descuento25;
-    var descuento20;
-    var descuento15;
-    var descuento10;
+    var descuento;
     var precioTotal;
     var precioConDescuento;
     var iibb;
-    var precioFinal;
+    var costoIibb;
         
     precioLamparitas = 35;
-    descuento50 = 0.5;
-    descuento40 = 0.60;
-    descuento30 = 0.7;
-    descuento25 = 0.75;
-    descuento20 = 0.8;
-    descuento15 = 0.85;
-    descuento10 = 0.90;
-    iibb = 1.1;
-
+    iibb = 0.1;
+    costoIibb = 0;
     cantidadLamparitas = txtIdCantidad.value;
     cantidadLamparitas = parseInt(cantidadLamparitas);
     marcaLamparitas = Marca.value;
     precioTotal = cantidadLamparitas * precioLamparitas;
-    //precioDescuento = txtIdprecioDescuento.value;
-
-    //alert(cantidadLamparitas);
-    //alert(marcaLamparitas);
 
      if(cantidadLamparitas>2)
      {
-        if(cantidadLamparitas == 3 && marcaLamparitas == "ArgentinaLuz")
+        if(cantidadLamparitas == 3)
         {
-            precioConDescuento =  precioTotal * descuento15;
-        }else
-        {
-            if(cantidadLamparitas == 3 && marcaLamparitas == "FelipeLamparas")
+            if(marcaLamparitas == "ArgentinaLuz")
             {
-            precioConDescuento = precioTotal * descuento10;
+                descuento = 0.85;
             }else
             {
-                if(cantidadLamparitas == 4 && (marcaLamparitas == "ArgentinaLuz" || marcaLamparitas == "FelipeLamparas"))
+                if(marcaLamparitas == "FelipeLamparas")
                 {
-                    precioConDescuento = precioTotal * descuento25;
+                    descuento = 0.9;
+                }
+            } 
+        }else
+        {
+            if(cantidadLamparitas == 4) 
+            {
+                if(marcaLamparitas == "ArgentinaLuz" || marcaLamparitas == "FelipeLamparas")
+                {
+                    descuento = 0.75;
                 }else
                 {
-                    if(cantidadLamparitas == 4)
+                    descuento = 0.80;
+                }    
+            }else
+            {
+                if(cantidadLamparitas == 5)
+                {
+                    if(marcaLamparitas == "ArgentinaLuz")
                     {
-                        precioConDescuento = precioTotal * descuento20;
+                        descuento = 0.60;
                     }else
                     {
-                        if(cantidadLamparitas == 5 && marcaLamparitas == "ArgentinaLuz")
-                        {
-                            precioConDescuento = precioTotal * descuento40;
-                        }else
-                        {
-                            if(cantidadLamparitas ==5)
-                            {
-                                precioConDescuento = precioTotal * descuento30;
-                            }else
-                            {
-                                precioConDescuento = precioTotal * descuento50;
-                            }
-                        }
+                        descuento = 0.70;
                     }
-
+                }else
+                {
+                    descuento = 0.5;
                 }
-            }
+            }            
+            
         }    
-        //alert(precioDescuento);
+
+        precioConDescuento = precioTotal * descuento;
+        
      }
+
      if(precioConDescuento > 120)
      {
-        precioFinal = precioConDescuento * iibb;
-        txtIdprecioDescuento.value = precioFinal.toFixed(2);
-        alert("Usted pago $" + precioFinal.toFixed(2) + " de IIBB.")
-     }else
-     {
-        txtIdprecioDescuento.value = precioConDescuento.toFixed(2);
+        costoIibb = precioConDescuento * iibb;      
+        alert("Usted pago $" + costoIibb.toFixed(2) + " de IIBB.")
      }
+     
+    precioTotal = precioConDescuento + costoIibb;
+    txtIdprecioDescuento.value = precioTotal.toFixed(2);     
 }   

@@ -23,6 +23,7 @@ function mostrar()
 			alert("EXCELENTE. Te sacaste un " + numero);
 		}
 	}
+	
 	//alert(numero);	
 	//Genero el número RANDOM entre 1 y 10 
 	//alert("ok");
