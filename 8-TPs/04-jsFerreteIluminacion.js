@@ -11,7 +11,7 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  */
 function CalcularPrecio () 
 {
-    var precioLamparitas;
+ /*   var precioLamparitas;
     var cantidadLamparitas;
     var marcaLamparitas;
     var descuento;
@@ -40,6 +40,9 @@ function CalcularPrecio ()
                 if(marcaLamparitas == "FelipeLamparas")
                 {
                     descuento = 0.9;
+                }else
+                {
+                    descuento = 0.95;
                 }
             } 
         }else
@@ -83,5 +86,75 @@ function CalcularPrecio ()
      }
      
     precioTotal = precioConDescuento + costoIibb;
-    txtIdprecioDescuento.value = precioTotal.toFixed(2);     
+    txtIdprecioDescuento.value = precioTotal.toFixed(2);  */ 
+    
+    var precioLamparitas;
+    var cantidadLamparitas;
+    var marcaLamparitas;
+    var descuento;
+    var precioTotal;
+    var precioConDescuento;
+    var iibb;
+    var costoIibb;
+        
+    precioLamparitas = 35;
+    iibb = 0.1;
+    costoIibb = 0;
+    cantidadLamparitas = txtIdCantidad.value;
+    cantidadLamparitas = parseInt(cantidadLamparitas);
+    marcaLamparitas = Marca.value;
+    precioTotal = cantidadLamparitas * precioLamparitas;
+
+    if(cantidadLamparitas>2)
+     {
+         switch(cantidadLamparitas)
+         {
+             case 3:
+                if(marcaLamparitas == "ArgentinaLuz")
+                {
+                    descuento = 0.85;
+                }else
+                {
+                    if(marcaLamparitas == "FelipeLamparas")
+                    {
+                        descuento = 0.9;
+                    }else
+                    {
+                        descuento = 0.95;
+                    }
+                }
+                break;
+            case 4:
+                if(marcaLamparitas == "ArgentinaLuz" || marcaLamparitas == "FelipeLamparas")
+                {
+                    descuento = 0.75;
+                }else
+                {
+                    descuento = 0.80;
+                }
+                break;   
+            case 5:
+                if(marcaLamparitas == "ArgentinaLuz")
+                {
+                    descuento = 0.60;
+                }else
+                {
+                    descuento = 0.70;
+                }
+                break;
+
+            default:
+                descuento = 0.5;
+
+         }
+         precioConDescuento = precioTotal * descuento;
+        }
+        if(precioConDescuento > 120)
+        {
+            costoIibb = precioConDescuento * iibb;      
+            alert("Usted pago $" + costoIibb.toFixed(2) + " de IIBB.")
+            precioTotal = precioConDescuento + costoIibb;
+     }
+     
+    txtIdprecioDescuento.value = precioTotal.toFixed(2);
 }   
