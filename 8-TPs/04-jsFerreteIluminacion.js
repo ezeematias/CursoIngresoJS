@@ -152,7 +152,7 @@ function CalcularPrecio ()
         if(precioConDescuento > 120)
         {
             costoIibb = precioConDescuento * iibb;      
-            alert("Usted pago $" + costoIibb.toFixed(2) + " de IIBB.")
+            alert("Usted pago $" + costoIibb.toFixed(2) + " de IIBB.");
             precioTotal = precioConDescuento + costoIibb;
      }
      
