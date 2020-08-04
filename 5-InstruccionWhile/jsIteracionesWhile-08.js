@@ -3,12 +3,12 @@ Al presionar el botón pedir  números  hasta que el usuario quiera,
 sumar los que son positivos y multiplicar los negativos.*/
 function mostrar()
 {
-	var i;
+	//var i;
 	var respuesta;
 	var sumaPositivos;
 	var multiplicacionNegativos;
 	var numeroIngresado;
-	i=0;
+	//i=0;
 	sumaPositivos=0;
 	multiplicacionNegativos=1;
 	respuesta =true;
